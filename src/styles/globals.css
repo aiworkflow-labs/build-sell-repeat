@@ -1,0 +1,87 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/*
+  Build. Sell. Repeat. — Design System (source of truth)
+  Direction: Premium Minimalist + human warmth. Industry-neutral.
+
+  Tailwind v4 reads these @theme tokens and auto-generates utilities:
+    --color-brand      -> bg-brand / text-brand / border-brand ...
+    --spacing-section  -> py-section / gap-section ...
+    --radius-card      -> rounded-card
+    --shadow-card      -> shadow-card
+    --font-display     -> font-display
+*/
+@theme {
+  /* ---- Color: brand core ---- */
+  --color-ink: #17181a; /* primary text / headlines */
+  --color-brand: #1e5f4f; /* evergreen — primary brand */
+  --color-brand-strong: #164a3d; /* brand hover / pressed */
+  --color-action: #1fa97a; /* CTA green (WhatsApp-adjacent) */
+  --color-action-strong: #178a63; /* CTA hover */
+  --color-gold: #c9a24b; /* premium accent, used sparingly */
+
+  /* ---- Color: neutrals (premium lives here) ---- */
+  --color-paper: #fbfaf7; /* page background — warm off-white */
+  --color-surface: #ffffff; /* cards / elevated surfaces */
+  --color-stone-100: #f2f0eb; /* subtle section backgrounds */
+  --color-stone-200: #e5e2db; /* borders / dividers */
+  --color-stone-400: #b4afa5; /* disabled / subtle icons */
+  --color-stone-600: #6b675f; /* secondary text */
+
+  /* ---- Color: semantic ---- */
+  --color-success: #1fa97a;
+  --color-warning: #c9852b;
+  --color-error: #c4462f;
+  --color-info: #2c6e8f;
+
+  /* ---- Typography ---- */
+  /* Geist = temporary display font (Next-optimized); Satoshi later. */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-geist), var(--font-inter), ui-sans-serif, sans-serif;
+
+  /* ---- Spacing: semantic rhythm (on top of the default scale) ---- */
+  --spacing-section: 8rem; /* 128px — desktop section rhythm */
+  --spacing-section-sm: 4rem; /* 64px — mobile section rhythm */
+  --spacing-gutter: 1.25rem; /* 20px — base mobile gutter */
+
+  /* ---- Radius ---- */
+  --radius-btn: 10px;
+  --radius-card: 16px;
+  --radius-pill: 9999px;
+
+  /* ---- Shadows: quiet, premium elevation ---- */
+  --shadow-card: 0 1px 2px rgba(23, 24, 26, 0.04), 0 8px 24px rgba(23, 24, 26, 0.06);
+  --shadow-float: 0 12px 40px rgba(23, 24, 26, 0.12);
+
+  /* ---- Content width ---- */
+  --container-content: 72rem; /* 1152px — max content width */
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+
+  /* Keyboard-visible focus ring (accessibility) */
+  :focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 2px;
+  }
+}

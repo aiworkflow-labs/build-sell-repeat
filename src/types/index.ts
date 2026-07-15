@@ -1,0 +1,62 @@
+/**
+ * Shared application types — the single place for cross-cutting shapes.
+ */
+
+/** A navigation link. `external` opens in a new tab and uses <a>. */
+export type NavItem = {
+  label: string;
+  href: string;
+  external?: boolean;
+};
+
+/** A titled group of links (used in the footer). */
+export type FooterColumn = {
+  title: string;
+  links: NavItem[];
+};
+
+/** Primary contact channels. WhatsApp is our main channel. */
+export type ContactInfo = {
+  /** Full international number, digits only, no "+" (for wa.me). */
+  whatsappNumber: string;
+  /** Default pre-filled WhatsApp message. */
+  whatsappMessage: string;
+  email: string;
+};
+
+/** Reusable call-to-action config. */
+export type CTAConfig = {
+  primaryLabel: string;
+  primaryHref: string;
+  demoLabel: string;
+  demoHref: string;
+};
+
+/** Top-level brand/site configuration. */
+export type SiteConfig = {
+  name: string;
+  shortName: string;
+  tagline: string;
+  description: string;
+  url: string;
+  locale: string;
+  contact: ContactInfo;
+  cta: CTAConfig;
+};
+
+/**
+ * Pricing configuration — drives every price surface in the UI.
+ * No price value is ever hardcoded in a component.
+ */
+export type PricingConfig = {
+  amount: number;
+  originalAmount: number | null;
+  showOriginalPrice: boolean;
+  currency: string;
+  billing: string;
+  tierLabel: string;
+  badge: string | null;
+  ctaLabel: string;
+  supportingCopy: string;
+  features: string[];
+};
