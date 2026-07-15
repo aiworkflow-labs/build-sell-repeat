@@ -1,8 +1,9 @@
+import { Hero } from "@/components/home/hero";
+
 /**
- * Homepage route. Phase 2 provides only the global shell (navbar + footer).
- * Homepage sections are built in a later phase; this is a minimal
- * non-marketing placeholder so the shell is reviewable.
+ * Homepage. Phase 3 builds only the Hero section; further sections
+ * (demo, how it works, benefits, pricing, founder, FAQ) come in later phases.
  */
 export default function Home() {
-  return <section aria-hidden="true" className="min-h-[40vh]" />;
+  return <Hero />;
 }

@@ -34,7 +34,7 @@ export function Navbar() {
           </nav>
 
           <div className="hidden md:block">
-            <Button asChild size="sm">
+            <Button asChild size="sm" className="px-6">
               <Link href={siteConfig.cta.primaryHref}>
                 {siteConfig.cta.primaryLabel}
               </Link>
