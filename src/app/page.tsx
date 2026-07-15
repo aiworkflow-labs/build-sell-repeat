@@ -1,9 +1,16 @@
 import { Hero } from "@/components/home/hero";
+import { DemoSection } from "@/components/home/demo-section";
 
 /**
- * Homepage. Phase 3 builds only the Hero section; further sections
- * (demo, how it works, benefits, pricing, founder, FAQ) come in later phases.
+ * Homepage. Sections are composed top-to-bottom and built in phases:
+ * Hero (done) → Demo (4.1 layout) → how it works, benefits, pricing,
+ * founder, FAQ come next.
  */
 export default function Home() {
-  return <Hero />;
+  return (
+    <>
+      <Hero />
+      <DemoSection />
+    </>
+  );
 }
