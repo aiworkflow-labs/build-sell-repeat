@@ -1,6 +1,7 @@
 import { Geist, Inter } from "next/font/google";
 import "@/styles/globals.css";
 import { defaultMetadata } from "@/config/metadata";
+import { SiteShell } from "@/components/layout/site-shell";
 
 /** Body font. */
 const inter = Inter({
@@ -29,7 +30,7 @@ export default function RootLayout({
       className={`${inter.variable} ${geist.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-paper text-ink">
-        {children}
+        <SiteShell>{children}</SiteShell>
       </body>
     </html>
   );
