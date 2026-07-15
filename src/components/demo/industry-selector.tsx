@@ -1,21 +1,25 @@
 import { cn } from "@/lib/utils";
-import { demoIndustries, defaultIndustryId } from "@/config/demo";
+import { demoIndustries } from "@/config/demo";
 
 /**
- * Industry selector — static chips (Milestone 4.1).
+ * Industry selector chips.
  *
- * Renders the available demo industries as a row of chips. Presentation only:
- * no client state or interaction yet (selection behavior arrives in 4.2). The
- * `activeId` prop marks the visually-selected chip so the same component can
- * be reused once it becomes interactive.
+ * Presentational and controlled: the parent owns the selection via `activeId`
+ * and is notified through `onSelect`. It carries no state of its own (state
+ * lives in the single `InteractiveDemo` client boundary that renders it), so
+ * this stays a thin, reusable component. Mobile shows a single
+ * horizontally-scrollable row; desktop centers the row.
  */
 export function IndustrySelector({
-  activeId = defaultIndustryId,
+  activeId,
+  onSelect,
 }: {
-  activeId?: string;
+  activeId: string;
+  onSelect: (id: string) => void;
 }) {
   return (
     <ul
+      aria-label="Choose an industry to preview"
       className={cn(
         // Mobile: single horizontally-scrollable row (no wrap), scrollbar hidden.
         "flex flex-nowrap gap-2 overflow-x-auto px-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden",
@@ -27,16 +31,19 @@ export function IndustrySelector({
         const isActive = industry.id === activeId;
         return (
           <li key={industry.id} className="shrink-0">
-            <span
+            <button
+              type="button"
+              onClick={() => onSelect(industry.id)}
+              aria-pressed={isActive}
               className={cn(
-                "inline-flex items-center whitespace-nowrap rounded-pill border px-4 py-2 text-sm font-medium",
+                "inline-flex cursor-pointer items-center whitespace-nowrap rounded-pill border px-4 py-2 text-sm font-medium transition-colors",
                 isActive
                   ? "border-ink bg-ink text-paper"
-                  : "border-stone-200 bg-surface text-stone-600",
+                  : "border-stone-200 bg-surface text-stone-600 hover:border-stone-400 hover:text-ink",
               )}
             >
               {industry.label}
-            </span>
+            </button>
           </li>
         );
       })}

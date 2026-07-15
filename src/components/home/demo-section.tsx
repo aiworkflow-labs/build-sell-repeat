@@ -1,19 +1,30 @@
 import { Container } from "@/components/ui/container";
-import { IndustrySelector } from "@/components/demo/industry-selector";
 import { DemoPhoneFrame } from "@/components/demo/demo-phone-frame";
 import { DemoPreview } from "@/components/demo/demo-preview";
+import { InteractiveDemo } from "@/components/demo/interactive-demo";
+import { demoIndustries } from "@/config/demo";
 import { SECTION_IDS } from "@/lib/constants";
 
 /**
- * Interactive Demo — Milestone 4.1 (layout foundation only).
+ * Interactive Demo section. Server Component.
  *
- * Server Component. Static structure: heading, supporting text, industry
- * selector chips, and a reusable phone frame holding a placeholder preview.
- * No client state, interaction, or animation yet — behavior arrives in 4.2.
- * Mobile-first single column that stays centered; the phone frame caps its
- * own width so the section reads cleanly at every breakpoint.
+ * Renders the section heading and one phone frame per industry on the server,
+ * then hands those frames to the `InteractiveDemo` client boundary which
+ * shows the selected one. This keeps all ordering-page markup
+ * (`DemoPhoneFrame` + `DemoPreview`) as Server Components while the only
+ * client-side concern — the selected industry — lives in a single component.
+ * Layout is unchanged from Milestone 4.1.
  */
 export function DemoSection() {
+  const frames = demoIndustries.map((industry) => ({
+    id: industry.id,
+    node: (
+      <DemoPhoneFrame>
+        <DemoPreview industry={industry} />
+      </DemoPhoneFrame>
+    ),
+  }));
+
   return (
     <section
       id={SECTION_IDS.demo}
@@ -31,18 +42,7 @@ export function DemoSection() {
           </p>
         </div>
 
-        {/* Industry selector (static) — bleeds to the screen edge on mobile so
-            the row can scroll horizontally without an awkward inset. */}
-        <div className="-mx-5 mt-8 sm:mx-0 sm:mt-10">
-          <IndustrySelector />
-        </div>
-
-        {/* Phone preview */}
-        <div className="mt-12 sm:mt-14">
-          <DemoPhoneFrame>
-            <DemoPreview />
-          </DemoPhoneFrame>
-        </div>
+        <InteractiveDemo frames={frames} />
       </Container>
     </section>
   );
