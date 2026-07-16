@@ -5,15 +5,21 @@ import { Benefits } from "@/components/home/benefits";
 import { Pricing } from "@/components/home/pricing";
 import { Founder } from "@/components/home/founder";
 import { Faq } from "@/components/home/faq";
+import { FinalCta } from "@/components/home/final-cta";
+import { serviceJsonLd } from "@/config/structured-data";
 
 /**
  * Homepage. Sections are composed top-to-bottom and built in phases:
- * Hero → Demo → How it works → Benefits → Pricing → Founder → FAQ (done).
- * Final CTA comes next.
+ * Hero → Demo → How it works → Benefits → Pricing → Founder → FAQ →
+ * Final CTA (done). Footer is provided by the site shell.
  */
 export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
       <Hero />
       <DemoSection />
       <HowItWorks />
@@ -21,6 +27,7 @@ export default function Home() {
       <Pricing />
       <Founder />
       <Faq />
+      <FinalCta />
     </>
   );
 }

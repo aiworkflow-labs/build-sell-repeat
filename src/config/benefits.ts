@@ -31,37 +31,31 @@ export const benefits: Benefit[] = [
   {
     icon: TrendingUp,
     title: "Get more orders",
-    description:
-      "A clear, tap-to-order page turns curious followers into paying customers — instead of orders getting lost in your DMs.",
+    description: "Turn Instagram visitors into paying customers.",
   },
   {
     icon: Timer,
     title: "Save hours every week",
-    description:
-      "No more copying names, addresses, and totals by hand. Orders arrive neatly organized, so you spend time on your craft, not admin.",
+    description: "No more copying order details by hand.",
   },
   {
     icon: AtSign,
     title: "Built for Instagram",
-    description:
-      "Made for how customers already find you — one link in your bio takes them straight to your products.",
+    description: "One bio link takes followers straight to your products.",
   },
   {
     icon: MessageCircle,
     title: "Keep using WhatsApp",
-    description:
-      "No new apps to learn. Every order lands in the same WhatsApp you already check all day.",
+    description: "Every order lands in the WhatsApp you already use.",
   },
   {
     icon: WalletMinimal,
     title: "No monthly fees",
-    description:
-      "Pay once and it's yours. No subscriptions and no surprise charges quietly eating into your margins.",
+    description: "Pay once. No subscriptions, ever.",
   },
   {
     icon: Rocket,
     title: "Ready in 48 hours",
-    description:
-      "Send us your details today and start taking orders in about two days — not two weeks.",
+    description: "Start taking orders in about two days.",
   },
 ];

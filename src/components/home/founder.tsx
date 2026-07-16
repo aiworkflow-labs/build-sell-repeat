@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Container } from "@/components/ui/container";
 import { founder } from "@/config/founder";
 import { SECTION_IDS } from "@/lib/constants";
@@ -7,7 +8,7 @@ import { SECTION_IDS } from "@/lib/constants";
  *
  * A trust-building two-column layout: on the left, an "About" eyebrow, a
  * personal headline, and a few short paragraphs; on the right, a premium
- * profile card (placeholder avatar, name, role, WhatsApp status, and small
+ * profile card (real founder photo, name, role, WhatsApp status, and small
  * trust points). Mobile-first — stacks to a single column with the copy first.
  * Reuses the same tokens, rhythm, and card styling as earlier sections; sits
  * on the tinted background to alternate against the paper Pricing above.
@@ -46,12 +47,24 @@ export function Founder() {
           <div className="md:justify-self-end md:pl-4">
             <div className="w-full max-w-sm rounded-card border border-stone-200 bg-surface p-8 shadow-card">
               <div className="flex items-center gap-4">
-                <span
-                  aria-hidden="true"
-                  className="flex size-16 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-brand to-action font-display text-2xl font-semibold text-white"
-                >
-                  {profile.initials}
-                </span>
+                {profile.photo ? (
+                  <div className="relative size-16 shrink-0 overflow-hidden rounded-full ring-1 ring-stone-200">
+                    <Image
+                      src={profile.photo.src}
+                      alt={profile.photo.alt}
+                      fill
+                      sizes="64px"
+                      className="object-cover object-center"
+                    />
+                  </div>
+                ) : (
+                  <span
+                    aria-hidden="true"
+                    className="flex size-16 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-brand to-action font-display text-2xl font-semibold text-white"
+                  >
+                    {profile.initials}
+                  </span>
+                )}
                 <div>
                   <p className="text-lg font-semibold text-ink">{profile.name}</p>
                   <p className="text-sm text-stone-600">{profile.role}</p>

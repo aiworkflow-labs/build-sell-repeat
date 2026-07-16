@@ -9,12 +9,6 @@ export type NavItem = {
   external?: boolean;
 };
 
-/** A titled group of links (used in the footer). */
-export type FooterColumn = {
-  title: string;
-  links: NavItem[];
-};
-
 /** Primary contact channels. WhatsApp is our main channel. */
 export type ContactInfo = {
   /** Full international number, digits only, no "+" (for wa.me). */
@@ -56,10 +50,14 @@ export type PricingConfig = {
   currency: string;
   /** Billing cadence, e.g. "one-time payment". */
   billing: string;
+  /** Optional word shown before the price, e.g. "Only". */
+  pricePrefix?: string;
   /** Featured badge, e.g. "Founding Offer". Null hides it. */
   badge: string | null;
   /** Short, value-focused card headline. */
   headline: string;
+  /** Small value points shown directly under the price. */
+  priceHighlights: string[];
   /** Explains the no-monthly-fees model. */
   supportingCopy: string;
   /** What's included. */

@@ -2,9 +2,9 @@ import { Check } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { pricing } from "@/config/pricing";
-import { siteConfig } from "@/config/site";
+import { whatsappHref } from "@/config/site";
 import { SECTION_IDS } from "@/lib/constants";
-import { formatPrice, whatsappLink } from "@/lib/utils";
+import { formatPrice } from "@/lib/utils";
 
 /**
  * Pricing section. Server Component.
@@ -19,10 +19,6 @@ import { formatPrice, whatsappLink } from "@/lib/utils";
  */
 export function Pricing() {
   const headingId = "pricing-heading";
-  const ctaHref = whatsappLink(
-    siteConfig.contact.whatsappNumber,
-    siteConfig.contact.whatsappMessage,
-  );
 
   return (
     <section
@@ -67,6 +63,11 @@ export function Pricing() {
                     {formatPrice(pricing.originalAmount, pricing.currency)}
                   </span>
                 )}
+                {pricing.pricePrefix && (
+                  <span className="text-lg font-medium text-stone-500">
+                    {pricing.pricePrefix}
+                  </span>
+                )}
                 <span className="font-display text-5xl font-extrabold tracking-tight text-ink">
                   {formatPrice(pricing.amount, pricing.currency)}
                 </span>
@@ -75,7 +76,17 @@ export function Pricing() {
                 </span>
               </div>
 
-              <p className="mx-auto mt-4 max-w-md leading-relaxed text-stone-600">
+              {/* Value points directly under the price */}
+              <ul className="mt-5 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm text-stone-600">
+                {pricing.priceHighlights.map((highlight) => (
+                  <li key={highlight} className="flex items-center gap-1.5">
+                    <Check className="size-4 text-action" aria-hidden="true" />
+                    {highlight}
+                  </li>
+                ))}
+              </ul>
+
+              <p className="mx-auto mt-5 max-w-md leading-relaxed text-stone-600">
                 {pricing.supportingCopy}
               </p>
             </div>
@@ -103,7 +114,7 @@ export function Pricing() {
                 className="h-[52px] w-full"
               >
                 <a
-                  href={ctaHref}
+                  href={whatsappHref}
                   target="_blank"
                   rel="noopener noreferrer"
                 >

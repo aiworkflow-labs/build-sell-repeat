@@ -1,4 +1,4 @@
-import { HeartHandshake, Clock, Code2, type LucideIcon } from "lucide-react";
+import { HeartHandshake, Clock, ShieldCheck, type LucideIcon } from "lucide-react";
 
 /**
  * "Founder" content (single source of truth).
@@ -13,8 +13,10 @@ export type FounderTrustPoint = {
 
 export type FounderProfile = {
   name: string;
-  /** Initials for the placeholder avatar (no photo yet). */
+  /** Initials used as a fallback if no photo is set. */
   initials: string;
+  /** Real founder photo. When present, it replaces the initials avatar. */
+  photo?: { src: string; alt: string };
   role: string;
   status: string;
   trust: FounderTrustPoint[];
@@ -28,22 +30,26 @@ export type FounderContent = {
 };
 
 export const founder: FounderContent = {
-  eyebrow: "About",
-  heading: "Built by someone who believes selling online should be simple.",
+  eyebrow: "The founder",
+  heading: "Hi, I'm Zaid.",
   paragraphs: [
-    "Build. Sell. Repeat. exists to help small businesses accept orders without the usual friction — no clunky checkout and no orders lost in the DMs, just a simple page your customers already know how to use.",
-    "No agencies and no complicated software. You get one clean ordering page, set up for you, that sends every order straight to your WhatsApp.",
-    "And you work with me directly — personal support from the first message to long after your page goes live.",
+    "I personally build every ordering page you see here.",
+    "When you message me on WhatsApp, you're chatting directly with me\u2014not a sales team.",
+    "My goal is simple: help your business start accepting more orders online without making technology feel complicated.",
   ],
   profile: {
     name: "Zaid",
     initials: "Z",
+    photo: {
+      src: "/founder-zaid.jpg",
+      alt: "Zaid, founder of Build. Sell. Repeat.",
+    },
     role: "Founder, Build. Sell. Repeat.",
     status: "Available on WhatsApp",
     trust: [
-      { icon: HeartHandshake, label: "Personal support" },
+      { icon: HeartHandshake, label: "Personal support, start to finish" },
       { icon: Clock, label: "Usually replies within a few hours" },
-      { icon: Code2, label: "Built with Next.js" },
+      { icon: ShieldCheck, label: "No agencies or middlemen" },
     ],
   },
 };

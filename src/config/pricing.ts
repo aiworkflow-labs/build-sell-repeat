@@ -16,8 +16,10 @@ export const pricing: PricingConfig = {
   showOriginalPrice: false,
   currency: "₹",
   billing: "one-time payment",
+  pricePrefix: "Only",
   badge: "Founding Offer",
   headline: "Everything you need to start taking orders",
+  priceHighlights: ["Delivered in 48 hours", "Pay once", "Keep forever"],
   supportingCopy:
     "One flat payment to set everything up. No monthly fees, no subscriptions, and no surprise charges — the page is yours to keep.",
   features: [
@@ -28,6 +30,6 @@ export const pricing: PricingConfig = {
     "Delivered in 48 hours",
     "Free minor revisions after delivery",
   ],
-  ctaLabel: "Get your ordering page",
+  ctaLabel: "Get started on WhatsApp",
   ctaTrustNote: "One-time payment • No subscriptions",
 };

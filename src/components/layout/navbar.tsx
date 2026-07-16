@@ -3,7 +3,7 @@ import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { Wordmark } from "@/components/layout/wordmark";
 import { MobileNav } from "@/components/layout/mobile-nav";
-import { siteConfig } from "@/config/site";
+import { siteConfig, whatsappHref } from "@/config/site";
 import { mainNav } from "@/config/navigation";
 
 /**
@@ -35,9 +35,9 @@ export function Navbar() {
 
           <div className="hidden md:block">
             <Button asChild size="sm" className="px-6">
-              <Link href={siteConfig.cta.primaryHref}>
+              <a href={whatsappHref} target="_blank" rel="noopener noreferrer">
                 {siteConfig.cta.primaryLabel}
-              </Link>
+              </a>
             </Button>
           </div>
 

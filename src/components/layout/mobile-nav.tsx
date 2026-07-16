@@ -5,9 +5,8 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Wordmark } from "@/components/layout/wordmark";
-import { siteConfig } from "@/config/site";
+import { siteConfig, whatsappHref } from "@/config/site";
 import { mainNav } from "@/config/navigation";
-import { whatsappLink } from "@/lib/utils";
 
 /**
  * Mobile navigation: hamburger trigger + full-screen overlay menu.
@@ -83,21 +82,13 @@ export function MobileNav() {
 
           <div className="flex flex-col gap-3 border-t border-stone-200 p-5">
             <Button asChild size="lg" className="w-full">
-              <Link href={siteConfig.cta.primaryHref} onClick={close}>
-                {siteConfig.cta.primaryLabel}
-              </Link>
-            </Button>
-            <Button asChild variant="secondary" size="lg" className="w-full">
               <a
-                href={whatsappLink(
-                  siteConfig.contact.whatsappNumber,
-                  siteConfig.contact.whatsappMessage,
-                )}
+                href={whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={close}
               >
-                Chat on WhatsApp
+                {siteConfig.cta.primaryLabel}
               </a>
             </Button>
           </div>

@@ -15,15 +15,14 @@ export const SECTION_IDS = {
   pricing: "pricing",
   founder: "founder",
   faq: "faq",
+  finalCta: "get-started",
 } as const;
 
 /** Top-level routes. */
 export const ROUTES = {
   home: "/",
-  pricing: "/pricing",
-  contact: "/contact",
-  faq: "/faq",
-  demos: "/demos",
+  privacy: "/privacy",
+  terms: "/terms",
 } as const;
 
 /** Tailwind breakpoints (px) mirrored for use in JS (e.g. media queries). */

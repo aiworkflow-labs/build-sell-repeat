@@ -15,14 +15,14 @@ export function DemoPhoneFrame({
   className?: string;
 }) {
   return (
-    <div className={cn("relative mx-auto w-full max-w-[380px]", className)}>
+    <div className={cn("relative mx-auto w-full max-w-[400px]", className)}>
       {/* Ambient shadow for extra depth (decorative) */}
       <div
         aria-hidden="true"
-        className="absolute inset-x-6 bottom-2 top-8 rounded-[2.5rem] bg-ink/10 blur-2xl"
+        className="absolute inset-x-6 bottom-2 top-8 rounded-[2.5rem] bg-ink/12 blur-2xl"
       />
       {/* Phone bezel */}
-      <div className="relative rounded-[2.75rem] border border-stone-200 bg-surface p-3.5 shadow-[0_1px_2px_rgba(23,24,26,0.04),0_22px_55px_rgba(23,24,26,0.16)]">
+      <div className="relative rounded-[2.75rem] border border-stone-200 bg-surface p-3.5 shadow-[0_2px_4px_rgba(23,24,26,0.05),0_30px_70px_rgba(23,24,26,0.20)]">
         {/* Screen */}
         <div className="min-h-[560px] overflow-hidden rounded-[2.1rem] bg-paper ring-1 ring-stone-200/70">
           {children}

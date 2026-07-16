@@ -3,14 +3,14 @@ import { Check } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { HeroVisual } from "@/components/home/hero-visual";
-import { siteConfig } from "@/config/site";
+import { siteConfig, whatsappHref } from "@/config/site";
 import { SECTION_IDS } from "@/lib/constants";
 
 /** Trust line shown under the hero CTAs. */
 const trustPoints = [
-  "Set up for you in 48 hours",
+  "Delivered in 48 hours",
   "One-time payment",
-  "No monthly fees",
+  "Personal support",
 ];
 
 /**
@@ -30,21 +30,21 @@ export function Hero() {
           {/* Copy */}
           <div className="max-w-xl">
             <h1 className="text-4xl font-extrabold leading-[1.08] text-ink sm:text-5xl lg:text-6xl">
-              Turn your Instagram into{" "}
+              Turn Instagram followers into{" "}
               <span className="text-brand">WhatsApp orders</span>.
             </h1>
 
             <p className="mt-6 text-lg leading-relaxed text-stone-600 sm:mt-5">
-              We build you a simple ordering page for your Instagram bio. Your
-              customers tap, pick what they want, and the order lands straight in
-              your WhatsApp — organized and ready.
+              We build a beautiful ordering page for your Instagram so customers
+              can browse products and order on WhatsApp — no website, no monthly
+              fees, and no complicated setup.
             </p>
 
             <div className="mt-10 flex flex-col gap-3 sm:mt-8 sm:flex-row">
               <Button asChild size="lg" className="h-[52px] w-full sm:w-auto">
-                <Link href={siteConfig.cta.primaryHref}>
+                <a href={whatsappHref} target="_blank" rel="noopener noreferrer">
                   {siteConfig.cta.primaryLabel}
-                </Link>
+                </a>
               </Button>
               <Button
                 asChild
@@ -58,35 +58,18 @@ export function Hero() {
               </Button>
             </div>
 
-            {/* Trust row */}
-            <div className="mt-8">
-              {/* Mobile: stacked with checks */}
-              <ul className="flex flex-col gap-2.5 sm:hidden">
-                {trustPoints.map((point) => (
-                  <li
-                    key={point}
-                    className="flex items-center gap-2 text-sm text-stone-600"
-                  >
-                    <Check className="size-4 text-action" aria-hidden="true" />
-                    {point}
-                  </li>
-                ))}
-              </ul>
-
-              {/* Desktop: single row with premium separators (phrases never break) */}
-              <ul className="hidden flex-wrap items-center gap-x-3 gap-y-2 text-sm text-stone-600 sm:flex">
-                {trustPoints.map((point, i) => (
-                  <li key={point} className="flex items-center gap-x-3">
-                    {i > 0 && (
-                      <span aria-hidden="true" className="text-stone-400">
-                        •
-                      </span>
-                    )}
-                    <span className="whitespace-nowrap">{point}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            {/* Trust bullets — stacked on mobile, one subtle row on desktop */}
+            <ul className="mt-8 flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-5 sm:gap-y-2">
+              {trustPoints.map((point) => (
+                <li
+                  key={point}
+                  className="flex items-center gap-2 text-sm text-stone-600"
+                >
+                  <Check className="size-4 text-action" aria-hidden="true" />
+                  <span className="whitespace-nowrap">{point}</span>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* Visual */}
