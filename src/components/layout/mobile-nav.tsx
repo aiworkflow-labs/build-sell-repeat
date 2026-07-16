@@ -60,7 +60,7 @@ export function MobileNav() {
             role="dialog"
             aria-modal="true"
             aria-label="Site menu"
-            className="fixed inset-0 z-50 flex flex-col bg-paper"
+            className="fixed inset-0 z-[100] flex flex-col overflow-y-auto bg-paper"
           >
           <div className="flex h-16 shrink-0 items-center justify-between px-5">
             <Wordmark href="/" />
@@ -75,7 +75,7 @@ export function MobileNav() {
             </button>
           </div>
 
-          <nav aria-label="Mobile" className="flex flex-1 flex-col gap-1 px-5 pt-4">
+          <nav aria-label="Mobile" className="flex flex-1 flex-col justify-center gap-2 px-5">
             {mainNav.map((item) => (
               <Link
                 key={item.href}
