@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -12,6 +13,12 @@ import { mainNav } from "@/config/navigation";
  * Mobile navigation: hamburger trigger + full-screen overlay menu.
  * This is the only Client Component in the shell (it needs open state,
  * scroll-lock, and keyboard handling). Shown under the `md` breakpoint.
+ *
+ * The overlay is rendered through a portal to `document.body`. The sticky
+ * header uses `backdrop-blur`, and a `backdrop-filter` makes an element the
+ * containing block for its `position: fixed` descendants — which would pin the
+ * overlay to the 64px header instead of the viewport. Portaling to the body
+ * escapes that containing block so `fixed inset-0` covers the whole screen.
  */
 export function MobileNav() {
   const [open, setOpen] = useState(false);
@@ -47,13 +54,14 @@ export function MobileNav() {
         <Menu className="size-6" aria-hidden="true" />
       </button>
 
-      {open && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-label="Site menu"
-          className="fixed inset-0 z-50 flex flex-col bg-paper"
-        >
+      {open &&
+        createPortal(
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-label="Site menu"
+            className="fixed inset-0 z-50 flex flex-col bg-paper"
+          >
           <div className="flex h-16 shrink-0 items-center justify-between px-5">
             <Wordmark href="/" />
             <button
@@ -92,8 +100,9 @@ export function MobileNav() {
               </a>
             </Button>
           </div>
-        </div>
-      )}
+          </div>,
+          document.body,
+        )}
     </div>
   );
 }
