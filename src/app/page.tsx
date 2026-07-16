@@ -2,10 +2,11 @@ import { Hero } from "@/components/home/hero";
 import { DemoSection } from "@/components/home/demo-section";
 import { HowItWorks } from "@/components/home/how-it-works";
 import { Benefits } from "@/components/home/benefits";
+import { Pricing } from "@/components/home/pricing";
 
 /**
  * Homepage. Sections are composed top-to-bottom and built in phases:
- * Hero → Demo → How it works → Benefits (done) → pricing, founder, FAQ next.
+ * Hero → Demo → How it works → Benefits → Pricing (done) → founder, FAQ next.
  */
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <DemoSection />
       <HowItWorks />
       <Benefits />
+      <Pricing />
     </>
   );
 }

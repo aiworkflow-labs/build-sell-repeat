@@ -50,13 +50,21 @@ export type SiteConfig = {
  */
 export type PricingConfig = {
   amount: number;
+  /** Optional "was" price for future strikethrough deals. */
   originalAmount: number | null;
   showOriginalPrice: boolean;
   currency: string;
+  /** Billing cadence, e.g. "one-time payment". */
   billing: string;
-  tierLabel: string;
+  /** Featured badge, e.g. "Founding Offer". Null hides it. */
   badge: string | null;
-  ctaLabel: string;
+  /** Short, value-focused card headline. */
+  headline: string;
+  /** Explains the no-monthly-fees model. */
   supportingCopy: string;
+  /** What's included. */
   features: string[];
+  ctaLabel: string;
+  /** Small reassurance note shown under the CTA. */
+  ctaTrustNote: string;
 };
