@@ -11,6 +11,8 @@ export type FinalCtaConfig = {
   heading: string;
   supporting: string;
   ctaLabel: string;
+  /** Subtle helper line shown directly under the WhatsApp CTA. */
+  ctaHelper: string;
   /** Short reassurance points shown under the CTA. */
   trustPoints: string[];
 };
@@ -21,5 +23,6 @@ export const finalCta: FinalCtaConfig = {
   supporting:
     "Message me today. I'll build your ordering page, set everything up, and you'll be ready to start accepting orders in about 48 hours.",
   ctaLabel: "Chat with me on WhatsApp",
+  ctaHelper: "No pressure. I'll answer your questions first.",
   trustPoints: ["One-time payment", "No monthly fees", "Personal support"],
 };

@@ -48,7 +48,7 @@ export const founder: FounderContent = {
     status: "Available on WhatsApp",
     trust: [
       { icon: HeartHandshake, label: "Personal support, start to finish" },
-      { icon: Clock, label: "Usually replies within a few hours" },
+      { icon: Clock, label: "You'll always talk directly with me." },
       { icon: ShieldCheck, label: "No agencies or middlemen" },
     ],
   },

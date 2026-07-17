@@ -38,7 +38,7 @@ export const siteConfig: SiteConfig = {
   cta: {
     primaryLabel: "Chat with me on WhatsApp",
     primaryHref: whatsappHref,
-    demoLabel: "Try the live demo",
+    demoLabel: "View live demo",
     demoHref: "/#demo",
   },
 };

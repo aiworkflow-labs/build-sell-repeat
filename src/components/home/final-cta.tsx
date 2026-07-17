@@ -42,12 +42,15 @@ export function FinalCta() {
           </p>
 
           {/* CTA */}
-          <div className="mt-10 flex justify-center">
+          <div className="mt-10 flex flex-col items-center">
             <Button asChild size="lg" className="h-[52px] w-full sm:w-auto">
               <a href={whatsappHref} target="_blank" rel="noopener noreferrer">
                 {finalCta.ctaLabel}
               </a>
             </Button>
+            <p className="mt-3 text-center text-sm text-stone-600">
+              {finalCta.ctaHelper}
+            </p>
           </div>
 
           {/* Trust line */}

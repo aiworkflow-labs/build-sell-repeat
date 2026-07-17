@@ -75,7 +75,10 @@ export function MobileNav() {
             </button>
           </div>
 
-          <nav aria-label="Mobile" className="flex flex-1 flex-col justify-center gap-2 px-5">
+          <nav
+            aria-label="Mobile"
+            className="flex flex-1 flex-col justify-center gap-5 px-5"
+          >
             {mainNav.map((item) => (
               <Link
                 key={item.href}
@@ -88,7 +91,7 @@ export function MobileNav() {
             ))}
           </nav>
 
-          <div className="flex flex-col gap-3 border-t border-stone-200 p-5">
+          <div className="mt-auto flex flex-col gap-3 border-t border-stone-200 px-5 pb-12 pt-6">
             <Button asChild size="lg" className="w-full">
               <a
                 href={whatsappHref}
